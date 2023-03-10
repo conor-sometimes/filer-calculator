@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# fc.sh
+# filer.sh
 #
 # Copyright (C) 2023 Conor McShane <conor dot d dot mcshane at gmail dot com>
 #
@@ -39,12 +39,10 @@ DRIVES_NEEDED="$(( (HOST_DRIVE_COUNT * HOST_AMOUNT) + EXTRA_DRIVE_COUNT))"
 BOXES_NEEDED="$(( DRIVES_NEEDED / BOX_DRIVE_COUNT ))"
 REMAINDER="$(( DRIVES_NEEDED % BOX_DRIVE_COUNT ))"
 
-echo $BOXES_NEEDED
 # If we have a remainder, we add another box
 if [[ $REMAINDER -gt 0 ]]; then
   ((BOXES_NEEDED=BOXES_NEEDED+1))
 fi
-echo $BOXES_NEEDED
 
 echo "You need $DRIVES_NEEDED drives"
 echo "Which is $BOXES_NEEDED boxes from the storeroom"
